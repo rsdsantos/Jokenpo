@@ -2,7 +2,7 @@
 
 namespace PedraPapelTesoura
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -25,21 +25,22 @@ namespace PedraPapelTesoura
             Console.Write("Jogador 2: ");
             var jogada2 = ValidarJogada();            
 
-            CalcularJogada(jogada1, jogada2);
+            var resultado = CalcularJogada(jogada1, jogada2);
 
+            ExibirResultado(resultado);
             ExibirFimDeJogo();
         }
 
-        private static void CalcularJogada(int jogada1, int jogada2)
+        public static string CalcularJogada(int jogada1, int jogada2)
         {
-            if ((jogada1) % 3 + 1 == jogada2)
-                ExibirResultado("Jogador 2 ganhou!");
+            if (jogada1 % 3 + 1 == jogada2)
+                return "Jogador 2 ganhou!";
 
-            else if ((jogada2) % 3 + 1 == jogada1)
-                ExibirResultado("Jogador 1 ganhou!");
+            else if (jogada2 % 3 + 1 == jogada1)
+                return "Jogador 1 ganhou!";
 
             else
-                ExibirResultado("Empate");            
+                return "Empate";    
         }
 
         private static int ValidarJogada()
