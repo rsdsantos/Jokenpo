@@ -4,6 +4,13 @@ namespace PedraPapelTesoura
 {
     public class Program
     {
+        /*
+         Regras:
+         [1]Pedra   ganha de [3]Tesoura
+         [2]Papel   ganha de [1]Pedra
+         [3]Tesoura ganha de [2]Papel
+         */
+
         static void Main(string[] args)
         {
             NovoJogo();
@@ -27,20 +34,39 @@ namespace PedraPapelTesoura
 
             var resultado = CalcularJogada(jogada1, jogada2);
 
-            ExibirResultado(resultado);
+            ExibirResultado(jogada1, jogada2, resultado);
+
             ExibirFimDeJogo();
         }
 
-        public static string CalcularJogada(int jogada1, int jogada2)
+        // Algoritmo principal
+        public static int CalcularJogada(int jogada1, int jogada2)
         {
             if (jogada1 % 3 + 1 == jogada2)
-                return "Jogador 2 ganhou!";
+                return jogada2;
 
             else if (jogada2 % 3 + 1 == jogada1)
-                return "Jogador 1 ganhou!";
+                return jogada1;
 
             else
-                return "Empate";    
+                return 0;    
+        }        
+                
+        private static void ExibirResultado(int jogada1, int jogada2, int resultado)
+        {
+            var mensagem = string.Empty;
+
+            if (resultado == jogada1)
+                mensagem = "Jogador 1 ganhou!";
+
+            else if (resultado == jogada2)
+                mensagem = "Jogador 2 ganhou!";
+
+            else
+                mensagem = "Empate";
+
+            Console.WriteLine();
+            Console.WriteLine($"Resultado: {mensagem}");
         }
 
         private static int ValidarJogada()
@@ -59,22 +85,32 @@ namespace PedraPapelTesoura
 
             return resultado;
         }
+
         private static void JogadaInvalida()
         {
             Console.WriteLine("Jogada inválida. Pressione qualquer tecla para tentar novamente...");
             Console.ReadKey();
             Console.Clear();
         }
-        private static void ExibirResultado(string resultado)
-        {
-            Console.WriteLine();
-            Console.WriteLine($"Resultado: {resultado}");
-        }
+
         private static void ExibirFimDeJogo()
         {
             Console.WriteLine();
-            Console.WriteLine("Fim de jogo! Pressione qualquer tecla para sair.");
-            Console.ReadKey();
+            Console.WriteLine("Fim de jogo! Pressione qualquer tecla para jogar novamente ou 0 para sair.");
+
+            var opcao = Console.ReadKey();
+
+            if (opcao.Key == ConsoleKey.NumPad0 || opcao.Key == ConsoleKey.D0)
+                Environment.Exit(0);
+
+            else
+                JogarNovamente();
+        }
+
+        private static void JogarNovamente()
+        {
+            Console.Clear();
+            NovoJogo();
         }
     }
 }
