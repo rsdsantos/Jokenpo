@@ -29,5 +29,5 @@ Com esse algoritmo é possível aumentar indefinidamente o número de jogadas.
 ## Informações gerais
 * Ambos os algoritmos suportam apenas dois jogadores;
 * A entrada dos dois jogadores são manuais, mas o jogador 2 poderia ser automatizado com poucas alterações;
-* É possível utilizar o algoritmo de 'Pedra Papel Tesoura Lagarto Spock' em 'Pedra Papel Tesoura' apenas reduzindo a dimensão do array, mas devido a simplicidade das validações do primeiro jogo, não há necessidade. Por isso, foram explorados dois algoritmos diferentes;
+* É possível utilizar o algoritmo de 'Pedra Papel Tesoura Lagarto Spock' em 'Pedra Papel Tesoura' apenas reduzindo a dimensão do array, mas devido a simplicidade das validações do primeiro jogo foram explorados dois algoritmos diferentes;
 * Os projetos estão no framework .NET Core 2.1;
