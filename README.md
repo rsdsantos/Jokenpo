@@ -16,7 +16,7 @@ Para 'Pedra Papel Tesoura' este algoritmo é suficente, mas não é extensível 
 
 ## Pedra Papel Tesoura Lagarto Spock
 
-O algoritmo deste jogo utiliza um laço para validar as regras definidas em um array multidimensional. É considerado que para cada índice do array estão mapeadas as possibilidades de ganho chegando aos seguintes cenários:
+O algoritmo deste jogo utiliza um laço para validar as regras definidas em um array multidimensional. É considerado que para cada índice do array estão mapeadas as possibilidades de ganho:
 
 * Índice 0 (Pedra) ganha de { Tesoura, Lagarto };
 * Índice 1 (Papel) ganha de { Pedra, Spock };
@@ -24,4 +24,10 @@ O algoritmo deste jogo utiliza um laço para validar as regras definidas em um a
 * Índice 3 (Lagarto) ganha de { Spock, Papel };
 * Índice 4 (Spock) ganha de { Tesoura, Pedra };
 
-É possível aumentar as 
+Com esse algoritmo é possível aumentar indefinidamente o número de jogadas.
+
+## Informações gerais
+* Ambos os algoritmos suportam apenas dois jogadores;
+* A entrada dos dois jogadores são manuais, mas o jogador 2 poderia ser automatizado com poucas alterações;
+* É possível utilizar o algoritmo de 'Pedra Papel Tesoura Lagarto Spock' em 'Pedra Papel Tesoura' apenas reduzindo a dimensão do array, mas devido a simplicidade das validações do primeiro jogo, não há necessidade. Por isso, foram explorados dois algoritmos diferentes;
+* Os projetos estão no framework .NET Core 2.1;
