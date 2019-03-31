@@ -51,7 +51,7 @@ namespace PedraPapelTesouraLagartoSpock
             if (jogada1 == jogada2)
                 return 0;                    
 
-            for (int i = 0; i < regras.Rank; i++)
+            for (int i = 0; i < regras.GetLength(1); i++)
                 if (regras[jogada1 - 1, i] == jogada2)
                     return jogada1;
 
